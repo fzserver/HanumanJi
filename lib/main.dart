@@ -1,3 +1,4 @@
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -21,7 +22,7 @@ class HanumanJi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool iOS = Theme.of(context).platform == TargetPlatform.iOS;
+    bool iOS = Platform.isIOS;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Hanuman Chalisa',
@@ -107,9 +108,7 @@ class _HanumanState extends State<Hanuman> {
   );
 
   BannerAd _bannerAd;
-  String bannerAdUnitId =  
-  // widget.isiOS == true ?'ca-app-pub-7600031190372955/9354587981' :
-            'ca-app-pub-7600031190372955/8284446258';
+  String bannerAdUnitId =  widget.isiOS == true ?'ca-app-pub-7600031190372955/9354587981' :'ca-app-pub-7600031190372955/8284446258';
 
   BannerAd createBannerAd() => BannerAd(
       adUnitId: bannerAdUnitId,
