@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:322558542296:android:f7da07330bf5c83e",
+        "mobilesdk_app_id": "1:322558542296:android:ee91b24a5278f57a",
         "android_client_info": {
-          "package_name": "com.hanuman.hanumanji"
+          "package_name": "com.hanuman.hanumanchalisa"
         }
       },
       "oauth_client": [
@@ -35,8 +35,7 @@
         "ads_service": {
           "status": 2
         }
-      },
-      "admob_app_id": "ca-app-pub-7600031190372955~4536772939"
+      }
     }
   ],
   "configuration_version": "1"

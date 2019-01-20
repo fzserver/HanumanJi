@@ -1,5 +1,5 @@
 String hanumanprayer() {
-    return '॥दोहा॥\n\n' +
+  return '॥दोहा॥\n\n' +
       'श्रीगुरु चरन सरोज रज निज मनु मुकुरु सुधारि ।\nबरनउँ रघुबर बिमल जसु जो दायकु फल चारि ॥\n\n' +
       'बुद्धिहीन तनु जानिके सुमिरौं पवन-कुमार ।\nबल बुधि बिद्या देहु मोहिं हरहु कलेस बिकार ॥\n\n' +
       '॥चौपाई॥\n\n' +
@@ -45,4 +45,8 @@ String hanumanprayer() {
       'तुलसीदास सदा हरि चेरा ।\nकीजै नाथ हृदय महँ डेरा ॥४०॥\n\n' +
       '॥दोहा॥\n\n' +
       'पवनतनय सङ्कट हरन मङ्गल मूरति रूप ।\nराम लखन सीता सहित हृदय बसहु सुर भूप ॥\n\n';
+}
+
+String hanumanaudio() {
+  return 'https://firebasestorage.googleapis.com/v0/b/flutter-884a9.appspot.com/o/Hanuman.mp3?alt=media&token=a33a2b6f-eada-4deb-b7bd-76933d52576c';
 }
