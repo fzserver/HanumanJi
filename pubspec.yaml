@@ -10,7 +10,7 @@ description: Hanuman Chalisa
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -19,13 +19,13 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  audioplayers:
-  firebase_admob:
-  firebase_core:
-  firebase_analytics:
-  launch_review:
-  share:
-  flutter_launcher_icons:
+  audioplayers: ^0.15.1
+  firebase_admob: ^0.9.3+2
+  firebase_core: ^0.4.4+3
+  firebase_analytics: ^5.0.11
+  launch_review: ^2.0.0
+  share: ^0.6.4
+  flutter_launcher_icons: ^0.7.4
 
 flutter_icons:
   android: "launcher_icon" 
