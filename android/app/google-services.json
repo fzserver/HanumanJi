@@ -1,39 +1,80 @@
 {
   "project_info": {
-    "project_number": "322558542296",
-    "firebase_url": "https://flutter-apps-76914.firebaseio.com",
-    "project_id": "flutter-apps-76914",
-    "storage_bucket": "flutter-apps-76914.appspot.com"
+    "project_number": "605816446562",
+    "firebase_url": "https://frazile-258317.firebaseio.com",
+    "project_id": "frazile-258317",
+    "storage_bucket": "frazile-258317.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:322558542296:android:ee91b24a5278f57a",
+        "mobilesdk_app_id": "1:605816446562:android:641a5597019323bf3a3b3b",
         "android_client_info": {
-          "package_name": "com.hanuman.hanumanchalisa"
+          "package_name": "com.frazile"
         }
       },
       "oauth_client": [
         {
-          "client_id": "322558542296-h70lrtp8flssid31rkf8b0osgcj9ujkc.apps.googleusercontent.com",
+          "client_id": "605816446562-bfrekmul59i748g3ujornlffq88vlifa.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDpSIybmo51bHyo1BzU3kFnSZSv823dkP0"
+          "current_key": "AIzaSyC7nOiw4npGl5vpATXBSuIl2UF6IQ62YEo"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605816446562-bfrekmul59i748g3ujornlffq88vlifa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "605816446562-b53fbppn1rld6ap2uk2fkvnvhmr2julf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.frazile"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605816446562:android:5f957f26715fba673a3b3b",
+        "android_client_info": {
+          "package_name": "com.fz.hanumanji"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605816446562-bfrekmul59i748g3ujornlffq88vlifa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7nOiw4npGl5vpATXBSuIl2UF6IQ62YEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605816446562-bfrekmul59i748g3ujornlffq88vlifa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "605816446562-b53fbppn1rld6ap2uk2fkvnvhmr2julf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.frazile"
+              }
+            }
+          ]
         }
       }
     }

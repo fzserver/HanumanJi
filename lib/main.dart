@@ -1,9 +1,9 @@
-import 'package:HanumanChalisa/MenuItems.dart';
-import 'package:HanumanChalisa/about.dart';
+import 'package:hanumanji/MenuItems.dart';
+import 'package:hanumanji/about.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:HanumanChalisa/prayer.dart';
+import 'package:hanumanji/prayer.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_admob/firebase_admob.dart';
@@ -47,13 +47,15 @@ class Hanuman extends StatefulWidget {
 class HanumanState extends State<Hanuman> {
   BannerAd _bannerAd;
 
-  String bannerAdUnitId = Platform.isIOS
-      ? 'ca-app-pub-7600031190372955/9354587981'
-      : 'ca-app-pub-7600031190372955/8284446258';
+  String bannerAdUnitId =
+      // Platform.isIOS
+      // ? 'ca-app-pub-7600031190372955/9354587981'
+      // :
+      'ca-app-pub-3595684883769922/9241531200';
 
   BannerAd createBannerAd() => BannerAd(
       adUnitId: bannerAdUnitId,
-      size: AdSize.smartBanner,
+      size: AdSize.banner,
       targetingInfo: Hanuman.targetInfo,
       listener: (MobileAdEvent event) {
         print("Banner event : $event");
@@ -63,9 +65,11 @@ class HanumanState extends State<Hanuman> {
   void initState() {
     super.initState();
     FirebaseAdMob.instance.initialize(
-        appId: Platform.isIOS
-            ? 'ca-app-pub-7600031190372955~9988356267'
-            : 'ca-app-pub-7600031190372955~4536772939');
+        appId:
+            // Platform.isIOS
+            // ? 'ca-app-pub-7600031190372955~9988356267'
+            // :
+            'ca-app-pub-3595684883769922~3126892458');
     _bannerAd = createBannerAd()..load();
   }
 
@@ -91,16 +95,16 @@ class HanumanState extends State<Hanuman> {
                 EdgeInsets.only(bottom: paddingBottom, right: paddingRight),
           );
         },
-        home: HanumanChalisa(),
+        home: Hanumanji(),
       );
 }
 
-class HanumanChalisa extends StatefulWidget {
+class Hanumanji extends StatefulWidget {
   @override
-  _HanumanChalisaState createState() => _HanumanChalisaState();
+  _HanumanjiState createState() => _HanumanjiState();
 }
 
-class _HanumanChalisaState extends State<HanumanChalisa> {
+class _HanumanjiState extends State<Hanumanji> {
   AudioPlayer audioPlayer = AudioPlayer();
   int playaudio;
   String prayer;
