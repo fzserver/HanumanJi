@@ -6,8 +6,9 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:hanumanji/prayer.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
-import 'package:firebase_admob/firebase_admob.dart';
 import 'dart:io' show Platform;
+
+import 'donate.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
@@ -22,22 +23,6 @@ class Hanuman extends StatefulWidget {
   static FirebaseAnalyticsObserver observer =
       FirebaseAnalyticsObserver(analytics: firebaseAnalytics);
 
-  // Admob Implementation
-  static final MobileAdTargetingInfo targetInfo = MobileAdTargetingInfo(
-    testDevices: <String>["52161986C14504D2EE7019AAC96D045E"],
-    keywords: <String>[
-      'WALLPAPERS',
-      'WALLS',
-      'AMOLED',
-      'Hanuman',
-      'God',
-      'Goddess',
-      'Prayer',
-      'Ram',
-    ],
-    childDirected: true,
-  );
-
   @override
   HanumanState createState() {
     return new HanumanState();
@@ -45,32 +30,9 @@ class Hanuman extends StatefulWidget {
 }
 
 class HanumanState extends State<Hanuman> {
-  BannerAd _bannerAd;
-
-  String bannerAdUnitId =
-      // Platform.isIOS
-      // ? 'ca-app-pub-7600031190372955/9354587981'
-      // :
-      'ca-app-pub-3595684883769922/9241531200';
-
-  BannerAd createBannerAd() => BannerAd(
-      adUnitId: bannerAdUnitId,
-      size: AdSize.banner,
-      targetingInfo: Hanuman.targetInfo,
-      listener: (MobileAdEvent event) {
-        print("Banner event : $event");
-      });
-
   @override
   void initState() {
     super.initState();
-    FirebaseAdMob.instance.initialize(
-        appId:
-            // Platform.isIOS
-            // ? 'ca-app-pub-7600031190372955~9988356267'
-            // :
-            'ca-app-pub-3595684883769922~3126892458');
-    _bannerAd = createBannerAd()..load();
   }
 
   @override
@@ -83,8 +45,6 @@ class HanumanState extends State<Hanuman> {
           accentColor: Colors.deepOrange,
         ),
         builder: (BuildContext context, Widget widget) {
-          _bannerAd..show();
-
           // var mediaQuery = MediaQuery.of(context);
           double paddingBottom = 50.0;
           double paddingRight = 0.0;
@@ -262,20 +222,20 @@ class _HanumanjiState extends State<Hanumanji> {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => About()));
         break;
-      // case 1:
-      //   Navigator.push(
-      //       context, MaterialPageRoute(builder: (context) => Settings()));
-      //   break;
-      // case 2:
-      //   Navigator.push(
-      //       context, MaterialPageRoute(builder: (context) => Donate()));
-      //   break;
+      case 1:
+        // Navigator.push(
+        //     context, MaterialPageRoute(builder: (context) => Settings()));
+        break;
+      case 2:
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Donate()));
+        break;
     }
   }
 
   static const List<MenuItems> menu = const <MenuItems>[
     const MenuItems(id: 0, title: 'About'),
-    // const MenuItems(id: 1, title: 'Settings'),
-    // const MenuItems(id: 2, title: 'Donate'),
+    const MenuItems(id: 1, title: 'Settings'),
+    const MenuItems(id: 2, title: 'Donate'),
   ];
 }
