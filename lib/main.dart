@@ -6,13 +6,18 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:hanumanji/prayer.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
-import 'dart:io' show Platform;
-
+import 'package:in_app_purchase/in_app_purchase.dart';
 import 'donate.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  // Inform the plugin that this app supports pending purchases on Android.
+  // An error will occur on Android if you access the plugin `instance`
+  // without this call.
+  //
+  // On iOS this is a no-op.
+  InAppPurchaseConnection.enablePendingPurchases();
   runApp(Hanuman());
 }
 
@@ -44,17 +49,6 @@ class HanumanState extends State<Hanuman> {
           primaryColor: Colors.yellowAccent,
           accentColor: Colors.deepOrange,
         ),
-        builder: (BuildContext context, Widget widget) {
-          // var mediaQuery = MediaQuery.of(context);
-          double paddingBottom = 50.0;
-          double paddingRight = 0.0;
-
-          return Padding(
-            child: widget,
-            padding:
-                EdgeInsets.only(bottom: paddingBottom, right: paddingRight),
-          );
-        },
         home: Hanumanji(),
       );
 }
@@ -117,7 +111,6 @@ class _HanumanjiState extends State<Hanumanji> {
   // dispose
   @override
   void dispose() {
-    // _bannerAd?.dispose();
     super.dispose();
   }
 
@@ -161,51 +154,47 @@ class _HanumanjiState extends State<Hanumanji> {
             ),
           ],
         ),
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: Card(
-                    color: Colors.yellow,
-                    child: SafeArea(
-                      child: Hero(
-                        child: FadeInImage(
-                          image: AssetImage('hanumanji.jpg'),
-                          fit: BoxFit.cover,
-                          placeholder: AssetImage('hanumanji.jpg'),
-                        ),
-                        tag: "Jai Hanuman Ji",
-                      ),
-                    ),
-                  ),
-                ),
-                Card(
-                  elevation: 2.0,
-                  color: Colors.yellowAccent,
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Card(
+                  color: Colors.yellow,
                   child: SafeArea(
-                    // child: SingleChildScrollView(
-                    //   scrollDirection: Axis.vertical,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text('$prayer',
-                          style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.deepOrange,
-                              fontWeight: FontWeight.w200)),
+                    child: Hero(
+                      child: FadeInImage(
+                        image: AssetImage('hanumanji.jpg'),
+                        fit: BoxFit.cover,
+                        placeholder: AssetImage('hanumanji.jpg'),
+                      ),
+                      tag: "Jai Hanuman Ji",
                     ),
-                    // ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
-                )
-              ],
-            ),
+              ),
+              Card(
+                elevation: 2.0,
+                color: Colors.yellowAccent,
+                child: SafeArea(
+                  // child: SingleChildScrollView(
+                  //   scrollDirection: Axis.vertical,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text('$prayer',
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            color: Colors.deepOrange,
+                            fontWeight: FontWeight.w200)),
+                  ),
+                  // ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 10.0),
+              )
+            ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
