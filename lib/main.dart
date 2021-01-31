@@ -6,6 +6,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:hanumanji/prayer.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
+import 'package:hanumanji/unity.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'donate.dart';
 
@@ -106,6 +107,7 @@ class _HanumanjiState extends State<Hanumanji> {
     playaudio = 0;
     currentPlaying = -1;
     _playerStatus = PlayerStatus.Stop;
+    Unity.initialize();
   }
 
   // dispose
@@ -174,6 +176,7 @@ class _HanumanjiState extends State<Hanumanji> {
                   ),
                 ),
               ),
+              Unity.showbannerAd(),
               Card(
                 elevation: 2.0,
                 color: Colors.yellowAccent,
@@ -193,7 +196,7 @@ class _HanumanjiState extends State<Hanumanji> {
               ),
               Padding(
                 padding: EdgeInsets.only(bottom: 10.0),
-              )
+              ),
             ],
           ),
         ),
