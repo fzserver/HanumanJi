@@ -71,6 +71,7 @@ class _HanumanjiState extends State<Hanumanji> {
   playpause(String url) async {
     PlayerStatus _playerStatusUpdate;
     if (_playerStatus == PlayerStatus.Playing) {
+      Unity.showRewardedAd();
       await audioPlayer.pause();
       _playerStatusUpdate = PlayerStatus.Paused;
     } else if (_playerStatus == PlayerStatus.Paused) {
@@ -201,11 +202,12 @@ class _HanumanjiState extends State<Hanumanji> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.yellow,
-          foregroundColor: Colors.deepOrange,
-          child: playerIcon(),
-          onPressed: () => playpause('$prayerurl'),
-        ),
+            backgroundColor: Colors.yellow,
+            foregroundColor: Colors.deepOrange,
+            child: playerIcon(),
+            onPressed: () {
+              playpause('$prayerurl');
+            }),
       );
 
   void selectedMenuItem(MenuItems menu) {

@@ -17,19 +17,19 @@ class Unity {
     );
   }
 
-  // static showRewardedAd() async {
-  //   await UnityAds.isReady(placementId: Constants.rewardedAdId)
-  //       ? UnityAds.showVideoAd(
-  //           placementId: Constants.rewardedAdId,
-  //           listener: (state, args) =>
-  //               print('Rewarded Video Listener: $state => $args'),
-  //         )
-  //       : UnityAds.showVideoAd(
-  //           placementId: Constants.interstitialAdId,
-  //           listener: (state, args) =>
-  //               print('Rewarded Video Listener: $state => $args'),
-  //         );
-  // }
+  static showRewardedAd() async {
+    await UnityAds.isReady(placementId: Constants.rewardedAdId)
+        ? UnityAds.showVideoAd(
+            placementId: Constants.rewardedAdId,
+            listener: (state, args) =>
+                print('Rewarded Video Listener: $state => $args'),
+          )
+        : UnityAds.showVideoAd(
+            placementId: Constants.interstitialAdId,
+            listener: (state, args) =>
+                print('Rewarded Video Listener: $state => $args'),
+          );
+  }
 
   static showbannerAd() => UnityBannerAd(
         placementId: Constants.bannerAdId,
