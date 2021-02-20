@@ -9,6 +9,7 @@ import 'package:firebase_analytics/observer.dart';
 import 'package:hanumanji/unity.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'donate.dart';
+import 'package:facebook_audience_network/facebook_audience_network.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
@@ -99,6 +100,11 @@ class _HanumanjiState extends State<Hanumanji> {
     );
   }
 
+  Widget _currentAd = SizedBox(
+    height: 0.0,
+    width: 0.0,
+  );
+
   // init State
   @override
   void initState() {
@@ -109,6 +115,15 @@ class _HanumanjiState extends State<Hanumanji> {
     currentPlaying = -1;
     _playerStatus = PlayerStatus.Stop;
     Unity.initialize();
+    setState(() {
+      _currentAd = FacebookBannerAd(
+        bannerSize: BannerSize.STANDARD,
+        placementId: '139166211358515_141548351120301',
+        listener: (result, value) {
+          print('BannerAd = $value');
+        },
+      );
+    });
   }
 
   // dispose
@@ -177,7 +192,14 @@ class _HanumanjiState extends State<Hanumanji> {
                   ),
                 ),
               ),
-              Unity.showbannerAd(),
+              // Unity.showbannerAd(),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                child: Container(
+                  alignment: Alignment(0.5, 1),
+                  child: _currentAd,
+                ),
+              ),
               Card(
                 elevation: 2.0,
                 color: Colors.yellowAccent,

@@ -17,6 +17,7 @@ dependencies:
   package_info: ^0.4.3+4
   share: ^0.6.5+4
   unity_ads_plugin: ^0.1.2
+  facebook_audience_network: ^0.8.0
 
 dev_dependencies:
   flutter_test:
